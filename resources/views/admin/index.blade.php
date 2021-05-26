@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('main')
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -16,6 +16,9 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+            </div>
+            <div class="col-md-12 text-center mt-4">
+              <a class="text-primary text-uppercase font-weight-bold" href="{{route('admin.posts.index')}}">Vai ai post</a>
             </div>
         </div>
     </div>
