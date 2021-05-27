@@ -18,14 +18,16 @@
                   <div class="card-body">
                       {{$post->description}}
 
-                      <a href="{{route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
-                      <form class="text-primary" action="{{route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <input class="text-danger" type="submit" name="" value="Elimina">
-                      </form>
+                      <div class="controller">
+                        <a href="{{route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
+                        <form class="text-primary" action="{{route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
+                          @csrf
+                          @method('DELETE')
+                          <input class="text-danger" type="submit" name="" value="Elimina">
+                        </form>
 
-                      <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">Dettagli</a>
+                        <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">Dettagli</a>
+                      </div>
                   </div>
               </div>
           </div>
