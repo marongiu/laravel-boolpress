@@ -25,7 +25,7 @@
                         <input class="text-danger" type="submit" name="" value="Elimina">
                       </form>
 
-                      <a href="{{route('admin.posts.show', ['post' => $post->id])}}">Dettagli</a>
+                      <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">Dettagli</a>
                   </div>
               </div>
           </div>
