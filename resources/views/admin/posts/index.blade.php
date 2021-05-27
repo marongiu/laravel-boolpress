@@ -11,22 +11,22 @@
         @foreach ($posts as $post)
           <div class="col-md-4">
               <div class="card mt-4">
-                  <div class="card-header">
-                    {{$post->title}}
+                  <div class="card-header text-center bg-info">
+                    <h5 class="text-light text-capitalize">{{$post->title}}</h5>
                   </div>
 
                   <div class="card-body">
-                      {{$post->description}}
+                      <p>{{$post->description}}</p>
 
-                      <div class="controller">
-                        <a href="{{route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
+                      <div class="controller d-flex justify-content-around align-items-center mt-5">
+                        <a class="btn btn-warning" href="{{route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
                         <form class="text-primary" action="{{route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
                           @csrf
                           @method('DELETE')
-                          <input class="text-danger" type="submit" name="" value="Elimina">
+                          <input class="btn btn-danger" type="submit" name="" value="Elimina">
                         </form>
 
-                        <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">Dettagli</a>
+                        <a  class="btn btn-primary "href="{{route('admin.posts.show', ['post' => $post->slug])}}">Dettagli</a>
                       </div>
                   </div>
               </div>

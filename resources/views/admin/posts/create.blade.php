@@ -7,11 +7,26 @@
         <h1>Creazione post</h1>
       </div>
     </div>
-    <div class="row justify-content-center mt-3">
-      <form action="{{route('admin.posts.store')}}" method="post">
+    <div class="row justify-content-center ">
+      <form class="col-md-6" action="{{route('admin.posts.store')}}" method="post">
 
         @csrf
         @method('POST')
+        <div class="form-group">
+          <label for="title">Categoria</label>
+          <select type="text" class="form-control  @error('title') is-invalid @enderror"  name="category_id">
+            <option value="">Seleziona</option>
+
+            @foreach ($categories as $category)
+              <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+          </select>
+            @error('title')
+               <small class="text-danger">{{ $message }}</small>
+             @enderror
+        </div>
+
+
         <div class="form-group">
           <label for="title">Titolo post</label>
           <input type="text" class="form-control  @error('title') is-invalid @enderror"  name="title" placeholder="Titolo" value="{{ old('title') }}">

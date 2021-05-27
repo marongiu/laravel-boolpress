@@ -4,11 +4,11 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-12">
-        <h1>Creazione post</h1>
+        <h1>Modifica post</h1>
       </div>
     </div>
     <div class="row justify-content-center mt-3">
-      <form action="{{route('admin.posts.update', ['post' => $post->id])}}" method="post">
+      <form class="col-md-6"action="{{route('admin.posts.update', ['post' => $post->id])}}" method="post">
 
         @csrf
         @method('PATCH')
