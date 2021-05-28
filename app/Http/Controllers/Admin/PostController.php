@@ -100,9 +100,14 @@ class PostController extends Controller
     $request->validate([
       'category_id' => 'exists:categories,id|nullable',
       'title' => 'required|string|max:255',
-      'description' => 'required|string'
+      'description' => 'required|string',
+      'cover' => 'image|max:6000|nullable'
     ]);
     $data = $request->all();
+
+    $cover = Storage::put('uploads', $data['cover']);
+    $data['cover'] = 'storage/'.$cover;
+
 
     if ($post->title != $data['title']) {
       // code...
