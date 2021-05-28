@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="row justify-content-center ">
-      <form class="col-md-6" action="{{route('admin.posts.store')}}" method="post">
+      <form class="col-md-6" action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method('POST')
@@ -38,6 +38,14 @@
           <label>Descrizione post</label>
           <textarea class="form-control @error('description') is-invalid @enderror" id="content" name="description"> {{ old('description') }}</textarea>
             @error('description')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Carica immagine</label>
+          <input type="file" class="form-control-file  @error('cover') is-invalid @enderror"  name="cover" value="{{ old('cover') }}">
+            @error('cover')
                 <small class="text-danger">{{ $message }}</small>
               @enderror
         </div>
