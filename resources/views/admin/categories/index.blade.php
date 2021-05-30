@@ -20,6 +20,7 @@
 
                       <div class="controller d-flex justify-content-around align-items-center mt-5">
                         <a class="btn btn-warning" href="{{route('admin.categories.edit', ['category' => $category->id])}}">Modifica</a>
+                        <a class="btn btn-primary" href="{{route('category.index', ['slug' => $category->slug])}}">Visualizza</a>
                         <form class="text-primary" action="{{route('admin.categories.destroy', ['category' => $category->id])}}" method="post">
                           @csrf
                           @method('DELETE')

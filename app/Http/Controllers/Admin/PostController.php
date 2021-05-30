@@ -7,6 +7,8 @@ use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -51,14 +53,21 @@ class PostController extends Controller
     ]);
 
     $data = $request->all();
+    
+    $cover = NULL;
 
-    $cover = Storage::put('uploads', $data['cover']);
+    if (array_key_exists('cover', $data)) {
+      // code...
+      $cover = Storage::put('uploads', $data['cover']);
+    }
     $post = new Post();
     $post->fill($data);
 
     $post->slug = $this->generateSlug($post->title);
     $post->cover = 'storage/'.$cover;
     $post->save();
+
+    Mail::to('mail@mail.it')->send(new SendNewMail());
 
     return redirect()->route('admin.posts.index');
   }
