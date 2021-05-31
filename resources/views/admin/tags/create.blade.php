@@ -4,11 +4,11 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-12">
-        <h1>Creazione post</h1>
+        <h1>Creazione tag</h1>
       </div>
     </div>
     <div class="row justify-content-center ">
-      <form class="col-md-6" action="{{route('admin.categories.store')}}" method="post">
+      <form class="col-md-6" action="{{route('admin.tags.store')}}" method="post">
         @csrf
         @method('POST')
 

@@ -27,7 +27,7 @@
                     Blog
                 </a>
 
-                
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -62,6 +62,8 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item text-primary text-uppercase font-weight-bold" href="{{route('admin.tags.index')}}">Vai ai tag</a>
+
                                     <a class="dropdown-item text-primary text-uppercase font-weight-bold" href="{{route('admin.posts.index')}}">Vai ai post</a>
                                     <a class="dropdown-item text-primary text-uppercase font-weight-bold" href="{{route('admin.categories.index')}}">Vai alle categorie</a>
 
